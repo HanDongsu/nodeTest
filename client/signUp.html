@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<title>Sign-up Page</title>
+</head>
+<body>
+	<div id="signup">
+	
+		<form id="signUpForm">
+			<div class="top-row">
+				<div id="email-wrap" class="field-wrap">
+					<label>아이디</label>
+					<input type="text" id="member_ID" name="userId" required autocomplete="off" placeholder="ID"/>
+				  <div id="check_Email_msg"></div>
+				</div>
+				<div id="password-Wrap" class="field-wrap">
+					<label>비밀번호</label>
+					<input type="password" id="member_PWD" required autocomplete="off" maxlength="16"/>
+					<div id="check_secu_msg" style="font-size: 10px;">영문 대문자/소문자/숫자/특수문자 조합으로 <span style="color:red;">8자리~16자리</span></div>
+					<div id="alert_wrap"><span>경고:</span><span id="password_alert"></span></div>
+					<label>비밀번호 확인</label>
+          <input type="password" id="check_member_PWD" name="userPwd" required autocomplete="off" />
+          <div id="check_PWD_msg"></div>
+				</div>
+				<div class="field-wrap">
+					<label>이 름</label>
+					<input type="text" id="member_Name" name="userName" required autocomplete="off" />
+				</div>
+				
+			</div>
+		</form>
+		<input type="submit" id="submitMember" value="가입하기"/>
+
+	</div>
+	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script type='text/javascript' src="../client/signUp.js"></script>
+</body>
+</html>

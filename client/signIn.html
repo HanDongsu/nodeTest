@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <h3> Chatting Test</h3>
+  <form>
+    <label>아이디 </label>
+    <input type="text" name="userId" id="userId" required/>
+    <label>비밀번호 </label>
+    <input type="password" name="userPwd" id="userPwd" required/>
+  </form>
+  <input type="submit" id="logInUser" value="로그인"/>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+ $("#logInUser").on("click",function(){
+  var loginInfo = {
+		  userId : $("#userId").val(),
+		  userPwd : $("#userPwd").val()
+  }
+  console.log(loginInfo);
+  ajaxLogin(loginInfo);
+  console.log("click")
+});
+function ajaxLogin(params) {
+  $.ajax({
+    url:"http://localhost:3000/auth/signIn",
+    type:"POST",
+    dataType:"json",
+    data: params,
+    success: function(obj) {
+    	console.log(obj);
+      if (obj.state != "success") {
+        alert("로그인 실패");
+        return
+      } else {
+    	  
+      alert("로그인 성공");
+      
+      window.location.href ="../client/main.html";
+      }
+    }
+  });
+  
+}
+</script>
+</body>
+</html>
